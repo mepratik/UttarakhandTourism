@@ -1,0 +1,231 @@
+/********************************************************
+   
+     uktourism style sheet for Uttarakhand Toruism
+     Author : Nishkarsh Sharma
+     
+*********************************************************/
+
+@font-face {
+  font-family: "chaparral pro";
+  src: url(ChaparralPro-Regular.otf); 
+  format("truetype");
+}
+
+body
+{
+	font-family:"Calibri";
+	background-image:url("/uktourism1.0/images/munsiyari_view.jpg");
+	background-size:cover;
+	background-attachment:fixed;
+}
+
+a:visited
+{
+	color:gray;
+	text-decoration:none;
+}
+
+a:hover
+{
+	color:maroon;
+}
+
+#nav
+{
+	background:#E6E6E6;
+	height:45px;
+	width:100.2%;
+	position:absolute;
+	top:-5px;
+	left:-2px;
+	border-bottom:1px solid lightgray;
+}
+
+#menu
+{
+	float:right;
+	font-size:18px;
+	color:gray;
+	height:37px;
+	align:right;
+	margin-top:13px;
+	
+}
+
+.menuitem
+{
+	height:37px;
+	padding:7px 7px 9px 7px;
+	border-right:1px solid lightgray;
+	text-transform:uppercase;
+	margin-left:-4px;
+}
+
+.menuitem:hover
+{
+	padding:7px 7px 5px 7px;
+	color:maroon;
+	border-right:0px;
+	border-bottom:5px solid maroon;
+	background:lightgray;
+	cursor:pointer;
+}
+
+
+#loginbox
+
+{
+	display:none;
+	background:lightgray;
+	position:absolute;
+	top:40px;
+	right:10px;
+	padding:10px 0px 20px 20px;
+	width:170px;
+	height:230px;
+	z-index:2;
+	opacity:0.9;
+}
+
+#logincontent
+{
+	display:none;
+}
+
+#wrapper
+{
+	margin:auto;
+	width:1190px;
+}
+
+#header
+{
+	margin-top:50px;
+	height:300px;
+	width:1190px;
+	background-image:url("/uktourism1.0/images/uttarakhand_banner.jpg");
+	background-size:1190px 360px;
+}
+
+#content
+{
+	background:lightgray;
+	opacity:0.8;
+	width:100%;
+	min-height:700px;
+}
+
+#search
+{
+	margin-left:30%;
+	padding:10px 10px 10px 10px;
+}
+
+#inputsearch
+{
+	height:30px;
+	width:250px;
+	font-size:20px;
+	color:darkgray;
+	text-transform:uppercase;
+}
+
+.button
+{
+	height:35px;
+	background:maroon;
+	color:white;
+}
+
+.button:hover
+{
+	color:maroon;
+	background:white;
+	cursor:pointer;
+}
+
+.result
+{
+	float:left;
+	margin-right:20px;
+	margin-bottom:38px;
+	border:1px solid gray;
+	height:150px;
+	width:180px;
+	cursor:pointer;
+}
+
+.result:hover
+{
+	border:1px solid maroon;
+}
+
+.resultdetails
+{
+	display:none;
+	float:left;
+	background:darkgray;
+}
+
+.viewmore
+{
+	cursor:pointer;
+}
+
+#searchresult
+{
+	float:left;
+	margin-bottom:20px;
+	width:98.3%;
+	background:#fff;
+	opacity:0.9;
+	padding:10px 10px 10px 10px;
+}
+
+.componentheading
+{
+ font-family:"chaparral pro","arial";
+ font-size:30px;
+ background-color:darkgray;
+ color:black;
+ font-weight:bold;
+ opacity:0.9;
+ clear:both;
+}
+
+.warningnote
+{
+	font-family:"Courier new";
+	color:red;
+	font-weight:bold;
+}
+
+#footer
+{
+ border-style:solid;
+ border-width:2px;
+ border-bottom:0px;
+ border-right:0px;
+ border-left:0px;
+ border-color:darkgray;
+ margin-top:3%;
+ margin-bottom:2%;
+ text-align:center;
+ font-family:"calibri","corbel","lithos pro","arial";
+ font-weight:"lighter";
+ font-size:15px;
+ clear:both;
+ background:lightgray;
+ opacity:0.8;
+ 
+}
+
+.ui-menu .ui-menu-item
+{
+	background:white;
+}
+
+ui-autocomplete li
+{
+	color:white;
+}

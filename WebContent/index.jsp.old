@@ -1,0 +1,118 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="neorest.*,org.neo4j.jdbc.*,java.sql.*" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/uktourism1.0/css/uktourism.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<script type="text/javascript" src="/uktourism1.0/js/jquery-1.8.0.js"></script>
+		<script type="text/javascript" src="/uktourism1.0/js/jquery.js"></script>
+	
+	<title>
+		Uttrakhand Tourism
+	</title>
+	
+	
+<script language="javascript">	
+
+/*JQUERY FOR EFFECTS AND ANIMATIONS*/
+
+/* SLIDING OF LOGIN BOX */
+
+$(document).ready(function() {
+
+	$('#login').click(function() {
+		$('#loginbox').slideDown('slow',function() {
+			$('#logincontent').fadeIn('slow')
+		 });
+	});
+	
+	$('#about').mouseover(function() {
+		$('#logincontent').fadeOut('slow', function() {
+    	  $('#loginbox').slideUp('slow');
+		});
+	});
+	
+	$('#header').mouseover(function() {
+		$('#logincontent').fadeOut('slow', function() {
+    	  $('#loginbox').slideUp('slow');
+		});
+	});
+	
+});
+
+</script>
+
+</head>
+<body>
+
+<div id="nav">
+<div style="width:1190px;margin:auto;">
+	<div id="menu">
+		<b>
+		<a href="/uktourism1.0/index.jsp"><span id="home" class="menuitem">Home</span></a>
+		<a href="/uktourism1.0/index.jsp"><span id="map" class="menuitem">Map</span></a>
+		<span id="contact" class="menuitem">Contact</span>
+		<span id="about" class="menuitem">About</span>
+		<span id="login" class="menuitem">Login</span>
+		</b>
+	</div>
+</div>
+</div>
+
+<div id="loginbox">
+ <div id="logincontent">
+ <form name="loginform" method="POST" action="login.jsp">
+ Username : <input type="text" name="username"><p/>
+ Password : <input type="password" name="password"><p/>
+ <input type="checkbox"/> Remember Me<br>
+ <input type="submit" name="submit" value="Login"><p/>
+ <small><u>New User? <a href="register.jsp">Register Here</a><br>
+ Forgot Password? <a href="passreset.jsp">Reset Here</a><br></u></small>
+ </form>
+ </div>
+</div>
+
+<div id="wrapper">
+	<div id="header">
+	<h1 class="componentheading">UTTARAKHAND TOURISM</h1>
+	</div>
+	<p>
+	<div id="content">
+		<div id="search">
+			<form method="GET" action="search.jsp">
+			<b><big>Destination : </big></b> <input id="inputsearch" type="text" name="query"/>&nbsp;
+			<input class="button" type="submit" value="Search"/><br/>
+			Search For :
+				<input type="checkbox" name="search_type" value="RecreationalPlace">Tourist Spots &nbsp;
+				<input type="checkbox" name="search_type" value="Temple">Temples &nbsp;
+				<input type="checkbox" name="search_type" value="Hotel">Hotels &nbsp;
+				<input type="checkbox" name="search_type" value="ShoppingPlace">Shopping Places &nbsp;
+				<input type="checkbox" name="search_type" value="Museum">Museums &nbsp; 
+			</form>
+		</div>
+		<div id="searchresult">
+		<%
+			neorest ne = new neorest();
+			Neo4jConnection con = ne.getconnection();
+			Neo4jStatement st = new Neo4jStatement(con);
+			ResultSet rs;
+			String qry;
+			qry="start n=node:node_auto_index(Name='Uttrakhand') match n-[:hasDestination]->city return city.Name,city.Ref_Id";
+			rs=st.executeQuery(qry);
+			out.println("<h4 class=\"componentheading\">Places To Visit</h4>");
+			while(rs.next())
+			{ 	
+				out.println("<span class=\"result\">");
+				out.println("<a href=\"/uktourism1.0/search.jsp?query="+rs.getString("city.Name")+"&search_type=RecreationalPlace&search_type=Temple&search_type=Hotel&search_type=ShoppingPlace&search_type=Museum\"><img style=\"height:150px;width:180px;\" src=\"/uktourism1.0/images/City_"+rs.getString("city.Ref_Id")+".jpg\"><br>"+rs.getString("city.Name")+"</a>");
+				out.println("</span>");
+			}
+		%>
+		</div>
+	</div>
+</div>
+<div id="footer">
+Copyright Protected &copy; 2012 http://www.uktourism.com | All Rights Reserved
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+/********************************************************
+   
+     uktourism style sheet for Uttarakhand Toruism
+     Author : Nishkarsh Sharma
+     
+*********************************************************/
+
+body
+{
+	font-family:"calibri";
+	background-image:url("images/UT.jpg");
+	background-size:cover;
+}
+
+#wrapper
+{
+	margin:auto;
+	width:1190px;
+}
